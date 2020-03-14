@@ -32,3 +32,4 @@ executable site
     , hakyll
     , mtl
     , transformers
+    , hspec
