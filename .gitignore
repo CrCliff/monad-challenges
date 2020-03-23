@@ -2,6 +2,7 @@ dist
 dist-newstyle
 *.hi
 *.o
+*.exe
 solutions
 *.swp
 _site
