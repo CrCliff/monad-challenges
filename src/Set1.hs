@@ -64,3 +64,12 @@ generalB f g1 g2 s = (f (fst x) (fst y), snd y)
 generalPair2 :: Gen a -> Gen b -> Gen (a,b)
 generalPair2 = generalB (,)
 
+repRandom :: [Gen a] -> Gen [a]
+repRandom [g]     s = ( [fst x], snd x )
+  where
+    x = g s
+repRandom (g:gs) s = ( (fst x) : (fst rest), snd x ) 
+  where
+    x = g s
+    rest = repRandom gs (snd x)
+

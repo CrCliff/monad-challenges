@@ -41,3 +41,8 @@ main = hspec $ do
     it "generalPair2 is equivalent to generalPair" $ do
       property $ \x -> fst (generalPair randLetter rand $ mkSeed x) == fst (generalPair2 randLetter rand $ mkSeed (x :: Integer))
 
+
+  describe "repRandom" $ do
+    it "check equivalence with randString3" $ do
+      fst (repRandom (replicate 3 randLetter) (mkSeed 1)) `shouldBe` randString3
+
